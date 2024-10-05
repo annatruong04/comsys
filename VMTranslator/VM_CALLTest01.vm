@@ -1,0 +1,8 @@
+call VM_CALLTest01.call_1 0
+label end
+goto end
+
+function VM_CALLTest01.call_1 0
+  push constant 2
+  pop static 0
+  return

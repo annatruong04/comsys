@@ -1,0 +1,30 @@
+push constant 4
+call VM_RETURNTest01.fib 1
+pop static 0
+label end
+goto end
+
+function VM_RETURNTest01.fib 1
+push argument 0
+push constant 2
+lt
+if-goto BASECASE
+goto continue
+
+label BASECASE
+push argument 0        
+return
+
+label continue
+push argument 0
+push constant 2
+sub
+call VM_RETURNTest01.fib 1 
+push argument 0
+push constant 1
+sub
+call VM_RETURNTest01.fib 1  
+add
+return
+
+

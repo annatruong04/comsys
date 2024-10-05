@@ -1,0 +1,4 @@
+function VM_FUNCTIONTest01.with_args 1
+  push constant 0
+  pop local 0
+  return

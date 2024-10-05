@@ -1,0 +1,10 @@
+call VM_RETURNTest02.call_1 0
+pop static 0
+
+label end
+goto end
+
+function VM_RETURNTest02.call_1 0
+  push constant 2
+  pop static 0
+  return

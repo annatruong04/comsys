@@ -1,0 +1,4 @@
+function VM_FUNCTIONTest02.no_args 0
+  push constant 2
+  pop local 0
+  return

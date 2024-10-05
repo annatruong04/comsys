@@ -1,0 +1,105 @@
+// Calculates a = x*y
+// a is a local variable
+// x & y are static variables
+
+// Put your code here.
+
+// check if x or y is 0
+push static 0
+push constant 0
+eq
+if-goto ZEROEND
+push static 1
+push constant 0
+eq
+if-goto ZEROEND
+// convert x and y to their absolute value
+push constant 0
+push static 0
+lt
+if-goto XPOSITIVE
+push static 0
+neg
+pop static 2
+goto XSKIP
+label XPOSITIVE
+push static 0
+pop static 2
+label XSKIP
+
+push constant 0
+push static 1
+lt
+if-goto YSPOSITIVE
+// store if y is negative in static 3
+push static 1
+neg
+pop static 3
+goto YSKIP
+label YSPOSITIVE
+push static 1
+pop static 3
+label YSKIP
+
+push static 2
+push static 3
+gt
+if-goto XGTY
+push static 2
+pop static 4
+push static 3
+pop static 2
+push static 4
+pop static 3
+
+label XGTY
+push constant 0
+pop local 0
+label LOOP
+push static 3
+push constant 0
+eq
+if-goto EXITLOOP
+push local 0
+push static 2
+add
+pop local 0
+push static 3
+push constant 1
+sub
+pop static 3
+goto LOOP
+label EXITLOOP
+
+
+// aply negative signs
+push constant 0
+push static 0
+lt
+if-goto XPOSITIVE2
+push local 0
+neg
+pop local 0
+label XPOSITIVE2
+push static 0
+pop static 0
+
+push constant 0
+push static 1
+lt
+if-goto YPOSITIVE2
+push local 0
+neg
+pop local 0
+label YPOSITIVE2
+push static 0
+pop static 0
+
+
+label END
+goto END
+
+label ZEROEND
+push constant 0
+pop local 0
+goto END
